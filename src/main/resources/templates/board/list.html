@@ -27,15 +27,15 @@
         <a href="/board" class="btn btn-primary btn-block">등록</a>
     </div>
     <br/><br/><br/>
-    <div id="mainHide">
-        <table class="table table-sm">
+    <div id="mainHide" class="table-responsive-md">
+        <table class="table">
             <thead>
             <tr>
-                <th>#</th>
-                <th>서비스 분류</th>
-                <th>제목</th>
-                <th>작성 날짜</th>
-                <th>수정 날짜</th>
+                <th style="width: 10%">#</th>
+                <th style="width: 10%">서비스 분류</th>
+                <th style="width: 60%">제목</th>
+                <th style="width: 10%">작성 날짜</th>
+                <th style="width: 10%">수정 날짜</th>
             </tr>
             </thead>
             <tbody>
@@ -43,8 +43,8 @@
                 <td th:text="${board.idx}"></td>
                 <td th:text="${board.boardType.value}"></td>
                 <td><a href="#" th:text="${board.title}"></a></td>
-                <td th:text="${board.createdDate}"></td>
-                <td th:text="${board.updatedDate}"></td>
+                <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}"></td>
+                <td th:text="${#temporals.format(board.updatedDate, 'yyyy-MM-dd')}"></td>
             </tr>
             </tbody>
         </table>
