@@ -2,6 +2,7 @@ package com.sangkon.app.controller;
 
 
 import com.sangkon.app.domain.Board;
+import com.sangkon.app.repository.BoardRepository;
 import com.sangkon.app.service.BoardService;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -19,6 +20,7 @@ public class BoardController {
         this.boardService = boardService;
     }
 
+
     @GetMapping("/board/list")
     public String board(@PageableDefault Pageable pageable,Model model) {
         model.addAttribute("boardList", boardService.findBoardList(pageable));
@@ -33,11 +35,7 @@ public class BoardController {
 
     @PostMapping("/board")
     public String setInputForm(Board boardForm) {
-        System.out.println(boardForm.getTitle());
-        System.out.println(boardForm.getSubTitle());
-        System.out.println(boardForm.getContent());
-        System.out.println(boardForm.getBoardType());
+        boardService.saveBoard(boardForm);
         return "redirect:/board";
     }
-
 }
