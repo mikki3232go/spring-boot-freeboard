@@ -14,7 +14,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import java.time.LocalDateTime;
 import java.util.stream.IntStream;
 
-@EnableJpaAuditing
 @SpringBootApplication
 public class AppApplication {
 
