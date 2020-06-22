@@ -10,9 +10,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 
 @Controller
 public class BoardController {
@@ -44,4 +46,12 @@ public class BoardController {
         boardService.saveBoard(board);
         return "redirect:/board";
     }
+
+    @GetMapping("/board/list/{id}")
+    public String getBoardItem(@PathVariable Long id, Model model) {
+        Board board = boardService.getBoardItem(id);
+        model.addAttribute("board", board);
+        return "board/form";
+    }
+
 }

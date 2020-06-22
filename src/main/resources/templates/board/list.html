@@ -31,18 +31,18 @@
         <table class="table">
             <thead>
             <tr>
-                <th style="width: 10%">#</th>
-                <th style="width: 10%">서비스 분류</th>
-                <th style="width: 60%">제목</th>
-                <th style="width: 10%">작성 날짜</th>
-                <th style="width: 10%">수정 날짜</th>
+                <th>#</th>
+                <th>서비스 분류</th>
+                <th>제목</th>
+                <th>작성 날짜</th>
+                <th>수정 날짜</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="board : ${boardList}">
                 <td th:text="${board.idx}"></td>
                 <td th:text="${board.boardType.value}"></td>
-                <td><a href="#" th:text="${board.title}"></a></td>
+                <td><a th:href="'/board/list/'+${board.idx}" th:text="${board.title}"></a></td>
                 <td th:text="${#temporals.format(board.createdDate, 'yyyy-MM-dd')}"></td>
                 <td th:text="${#temporals.format(board.updatedDate, 'yyyy-MM-dd')}"></td>
             </tr>

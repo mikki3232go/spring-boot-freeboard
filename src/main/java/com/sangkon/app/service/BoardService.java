@@ -7,6 +7,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class BoardService {
     private BoardRepository boardRepository;
@@ -25,6 +27,10 @@ public class BoardService {
 
     public  Board saveBoard(Board board) {
         return boardRepository.save(board);
+    }
+
+    public Board getBoardItem(Long id) {
+        return boardRepository.findById(id).orElseGet(null);
     }
 
 }
