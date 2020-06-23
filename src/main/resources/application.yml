@@ -5,7 +5,6 @@ spring:
     username: sa
     database-platform: org.hibernate.dialect.H2Dialect
 
-
   jpa:
     properties:
       hibernate:
@@ -15,10 +14,4 @@ spring:
     console:
       enabled: true
       path: /h2-console
-
-  devtools:
-    livereload:
-      enabled: true
-    restart:
-      enabled: true
 

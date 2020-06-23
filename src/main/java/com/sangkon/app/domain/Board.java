@@ -17,9 +17,10 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-@Entity
 @AllArgsConstructor
 @ToString(exclude = "user")
+@EntityListeners(AuditingEntityListener.class)
+@Entity
 public class Board {
     @Id
     @GeneratedValue
@@ -28,8 +29,7 @@ public class Board {
     @NotEmpty(message = "Title is not Empty")
     private String title;
 
-    @NotEmpty(message = "SubTitle is not Empty")
-    private String subTitle;
+    @NotEmpty(message = "Title is not content")
     private String content;
 
     @Enumerated(EnumType.STRING)

@@ -18,14 +18,12 @@ public class BoardService {
     }
 
     public Page<Board> findBoardList(Pageable pageable) {
-        pageable = PageRequest.of(pageable.getPageNumber() <= 0 ? 0 : pageable.getPageNumber()-1,
+        pageable = PageRequest.of(pageable.getPageNumber() <= 0 ? 0 : pageable.getPageNumber() - 1,
                 pageable.getPageSize());
-        System.out.println(pageable.getPageSize());
-        System.out.println(pageable.getPageNumber());
         return boardRepository.findAll(pageable);
     }
 
-    public  Board saveBoard(Board board) {
+    public Board saveBoard(Board board) {
         return boardRepository.save(board);
     }
 
