@@ -30,7 +30,7 @@ public class AppApplication {
             User user = userRepository.save(
                     User.builder()
                             .name(Faker.instance().name().fullName())
-                            .password("test")
+                            .password("1234")
                             .email(Faker.instance().name().username() + "@gmail.com")
                             .createdDate(LocalDateTime.now())
                             .build()
